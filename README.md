@@ -8,6 +8,6 @@
 
 
 ## Blocks
-| Blocks        | Image     | CAD | STL |  
-|---------------|-----------|------------|------------|
-|a|a|a|a|a|
+| Blocks        | Image     | CAD | STL |
+|:---:|:---:|:---:|:---:|
+| Generic PCB | ![generic pcb](img/generic_pcb.svg) | [OpenSCAD](cad/pcb.scad) | - |

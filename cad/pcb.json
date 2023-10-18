@@ -1,0 +1,18 @@
+{
+    "parameterSets": {
+        "test": {
+            "L": "75",
+            "R": "2",
+            "a": "5",
+            "b": "2",
+            "base_depth": "20",
+            "base_height": "5",
+            "base_width": "20",
+            "radius": "5",
+            "uno_depth": "68.6",
+            "uno_heigth": "1.6",
+            "uno_width": "53.4"
+        }
+    },
+    "fileFormatVersion": "1"
+}

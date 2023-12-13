@@ -9,7 +9,7 @@ hole_diam=3;
 
 ////////////////////////////////////////////////////////////////////////////////
 /* [Change at your own risks] */
-fillet_radius = grid_spacing/2;
+fillet_radius = 2.5;//grid_spacing/4;
 xside_recalc = ceil(xside/grid_spacing)*grid_spacing;
 yside_recalc = ceil(yside/grid_spacing)*grid_spacing;
 
@@ -27,9 +27,11 @@ module wasteboard(){
     difference(){
 linear_extrude(height = thickness) {
         offset($fn=50, r = fillet_radius) {
-           square([xside_recalc-fillet_radius*2,yside_recalc-fillet_radius*2],center=false);}
+            translate([0,0,0])
+                square([xside_recalc-grid_spacing-fillet_radius*2,yside_recalc-grid_spacing-fillet_radius*2],center=false);}
            }
-           array();}
+           translate([grid_spacing/2-fillet_radius,grid_spacing/2-fillet_radius,0])
+                array();}
     }
 
 //wasteboard();

@@ -21,6 +21,8 @@ I defined "standard dimensions", and most of STL availables are "standard", and 
 
 But the CAD files are parametric and should work with other dimensions (if not, feel free to share pull requests of your modifications).
 
+![tutorial](img/tutorial.svg)
+
 ## Examples
 Here are a few examples of projects I made using the quick-blocks. It really convinced me this project is worth being shared.  
 ![examples](img/examples.svg)

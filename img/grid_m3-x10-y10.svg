@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 500 500"
-   width="50mm"
-   height="50mm"
+   viewBox="0 0 1013.0749 499.85001"
+   width="101.30749mm"
+   height="49.985001mm"
    version="1.2"
    id="svg51"
    sodipodi:docname="grid_m3-x10-y10.svg"
@@ -12,7 +12,10 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"><sodipodi:namedview
      id="namedview51"
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -23,10 +26,10 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.4985802"
-     inkscape:cx="45.709931"
-     inkscape:cy="36.034106"
-     inkscape:window-width="1433"
-     inkscape:window-height="938"
+     inkscape:cx="45.709933"
+     inkscape:cy="36.034107"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -50,7 +53,7 @@
      inkscape:label="TechDraw"
      inkscape:groupmode="layer"
      id="Page"
-     transform="translate(-1231.533,-755.10469)"><g
+     transform="translate(-1231.608,-755.17969)"><g
        stroke-linejoin="bevel"
        fill="none"
        fill-rule="evenodd"
@@ -67,7 +70,7 @@
          y="671.33173"
          style="stroke-width:5.44427"
          clip-path="url(#clipPath1)" /><rect
-         style="fill:none;fill-opacity:1;stroke-width:2.49999998;stroke-linecap:square;paint-order:fill markers stroke;stroke-dasharray:none"
+         style="fill:none;fill-opacity:1;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;paint-order:fill markers stroke"
          id="rect51"
          width="497.35001"
          height="497.35001"
@@ -77,4 +80,17 @@
          rx="100"
          inkscape:export-filename="grid_m3-x10-y10.png"
          inkscape:export-xdpi="200"
-         inkscape:export-ydpi="200" /></g></g></svg>
+         inkscape:export-ydpi="200" /><rect
+         style="fill:none;fill-opacity:1;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect51-6"
+         width="497.35001"
+         height="497.35001"
+         x="1746.0829"
+         y="756.42969"
+         ry="100"
+         rx="100"
+         inkscape:export-filename="grid_m3-x10-y10.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" /></g></g><metadata
+     id="metadata1"><rdf:RDF><cc:Work
+         rdf:about=""><dc:title>FreeCAD SVG Export</dc:title></cc:Work></rdf:RDF></metadata></svg>

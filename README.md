@@ -17,7 +17,9 @@
 
 
 ## Introduction
-The quick-blocks are parameteric CAD files to 3D print blocks and clip electronics modules (or anything else) on these blocks. Easily assemble, re-arrange, update modules, disassemble your prototype. This quick-block prototyping project was created to **prototype the easy way**, with **modularity** in mind.  
+The quick-blocks project enables the design of customized boxes for your electronic project along with modular blocks for the positioning of individual modules (PCB, fan, button etc…), through a collection of CAD file templates to be opened directly with FreeCAD or OpenScad.  
+
+Easily assemble, re-arrange, update modules, disassemble your prototype. This quick-block prototyping project was created to **prototype the easy way**, with **modularity** in mind.  
 I defined "standard dimensions", and most of STL availables are "standard", and fit with the following dimensions: 
 - grid spacing : 10 mm
 - screws : M3
@@ -54,6 +56,7 @@ Feel free to help updating this section, with new blocks designs, or with parame
 | Blocks        | Image     | CAD | STL | Components |
 |:---:|:---:|:---:|:---:|:---:|
 | Arduino Mega Board | ![arduino mega board](img/arduino_mega_board.svg) | - | [Arduino Mega Board](stl/arduino_mega_board.stl) | Arduino Mega Boards |
+| Fan holder | ![fan-holder_RS-PRO-6688814](img/fan-holder_RS-PRO-6688814.svg) | [fan-holder_RS-PRO-6688814](FreeCAD/fan-holder_RS-PRO-6688814.FCStd) | [fan-holder](stl/fan-holder_RS-PRO-6688814.stl)<br>[rod](stl/fan-holder_rod_RS-PRO-6688814.stl)<br>[grid](stl/fan-holder_grid_RS-PRO-6688814.stl) | RS PRO 6688814 fan |
 | IEC connector plug (TC-10088376) | ![iec_TC-10088376](img/iec_TC-10088376.svg) | [iec_TC-10088376](FreeCAD/iec_TC-10088376.FCStd) | [iec_TC-10088376](stl/iec_TC-10088376.stl) | TRU COMPONENTS TC-10088376 |
 | JST SM panel | ![jst-sm_panel](img/jst-sm_panel.svg) | [jst-sm_panel](cad/FreeCAD/jst-sm_panel.FCStd) | *Parametric* | Most JST SM plug housing |
 | Power Supply Unit foot | ![psu_foot](img/psu_foot.svg) | [psu_foot](cad/FreeCAD/psu_foot.stl) | [psu_foot](stl/psu_foot.stl) | Power Supply Units |

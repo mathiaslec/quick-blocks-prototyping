@@ -10,6 +10,7 @@ pcb_depth = 31.5;
 pcb_height = 1.65;
 
 swap_tabs = false;
+external_Ltabs = false;
 
 ////////////////////////////////////////////////////////////////////////////////
 /* [Secondary parameters] */
@@ -33,8 +34,16 @@ board_depth = ceil(board_depth_min/grid_spacing)*grid_spacing-tolerance;
 holes_dist_depth_min = floor(pcb_depth-(nut_max_diam+tolerance*2)/2-min_border*2);
 holes_dist_depth = ceil(holes_dist_depth_min/grid_spacing)*grid_spacing;
 
-tab_length = board_width/3;
-L_tab_length = board_depth/3;
+
+fixed_tab_length = 15;
+tab_length = swap_tabs ? fixed_tab_length : pcb_width/3; //ok
+L_tab_length = swap_tabs ? pcb_depth/3 : fixed_tab_length; // ok
+
+//final_tab_length = external_Ltabs ?  pcb_width : tab_length;
+final_L_tab_length = external_Ltabs ?  fixed_tab_length : L_tab_length;
+
+//final_L_tab_length = swap_tabs ? pcb_depth/3 : L_tab_length;
+//L_tab_length = board_depth/3;
 L_hook = 1;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -77,8 +86,8 @@ cube([tab_length, 1.5, pcb_height+tolerance*2], center=false);
 }
 //L tabs
 mirror_copy([1, 0, 0])
-translate([-pcb_width/2-tolerance-1.5,-L_tab_length/2,board_height]){
-    cube([1.5, L_tab_length, pcb_height]);
+translate([-pcb_width/2-tolerance-1.5,-final_L_tab_length/2,board_height]){
+    cube([1.5, final_L_tab_length, pcb_height]);
         }
 
         }
@@ -89,10 +98,10 @@ translate([-tab_length/2,pcb_depth/2+tolerance,board_height]){
 cube([tab_length, 1.5, pcb_height], center=false);}
 //L tabs
 mirror_copy([1, 0, 0])
-translate([-pcb_width/2-tolerance-1.5,-L_tab_length/2,board_height]){
-    cube([1.5, L_tab_length, pcb_height+tolerance*2]);
+translate([-pcb_width/2-tolerance-1.5,-final_L_tab_length/2,board_height]){
+    cube([1.5, final_L_tab_length, pcb_height+tolerance*2]);
     translate([0,0,pcb_height+tolerance*2]){
-        cube([1.5+L_hook, L_tab_length, 2]);}}
+        cube([1.5+L_hook, final_L_tab_length, 2]);}}
 }
 // THE END
  

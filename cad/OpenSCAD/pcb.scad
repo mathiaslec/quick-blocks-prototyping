@@ -9,6 +9,8 @@ pcb_width=39.6;
 pcb_depth = 31.5;
 pcb_height = 1.65;
 
+swap_tabs = false;
+
 ////////////////////////////////////////////////////////////////////////////////
 /* [Secondary parameters] */
 hole_diam = 3; // for screw
@@ -30,6 +32,7 @@ board_depth_min = ceil(pcb_depth+min_border*2);
 board_depth = ceil(board_depth_min/grid_spacing)*grid_spacing-tolerance;
 holes_dist_depth_min = floor(pcb_depth-(nut_max_diam+tolerance*2)/2-min_border*2);
 holes_dist_depth = ceil(holes_dist_depth_min/grid_spacing)*grid_spacing;
+
 tab_length = board_width/3;
 L_tab_length = board_depth/3;
 L_hook = 1;
@@ -61,16 +64,35 @@ difference(){
                     translate([holes_dist_width/2,holes_dist_depth/2,board_height/2]){
                         cylinder($fn=6, h=board_height*2, r=(nut_max_diam/2+tolerance));}}
 
+                          
+if (swap_tabs){
 //simple tabs
 mirror_copy([0, 1, 0])
 translate([-tab_length/2,pcb_depth/2+tolerance,board_height]){
-cube([tab_length, min_border, pcb_height], center=false);}
-
+cube([tab_length, 1.5, pcb_height+tolerance*2], center=false);
+    //translate([0,0,pcb_height+tolerance*2]){
+    translate([0,-L_hook,pcb_height+tolerance*2]){
+        cube([ tab_length,1.5+L_hook, 2]);
+        }
+}
 //L tabs
 mirror_copy([1, 0, 0])
-translate([-pcb_width/2-tolerance-min_border,-L_tab_length/2,board_height]){
-    cube([min_border, L_tab_length, pcb_height+tolerance*2]);
+translate([-pcb_width/2-tolerance-1.5,-L_tab_length/2,board_height]){
+    cube([1.5, L_tab_length, pcb_height]);
+        }
+
+        }
+
+else {
+mirror_copy([0, 1, 0])
+translate([-tab_length/2,pcb_depth/2+tolerance,board_height]){
+cube([tab_length, 1.5, pcb_height], center=false);}
+//L tabs
+mirror_copy([1, 0, 0])
+translate([-pcb_width/2-tolerance-1.5,-L_tab_length/2,board_height]){
+    cube([1.5, L_tab_length, pcb_height+tolerance*2]);
     translate([0,0,pcb_height+tolerance*2]){
-        cube([min_border+L_hook, L_tab_length, 2]);}}
+        cube([1.5+L_hook, L_tab_length, 2]);}}
+}
 // THE END
  

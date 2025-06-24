@@ -101,14 +101,14 @@ if (swap_tabs) {
   // L tabs
   if (external_Ltabs){
   mirror([1, 0, 0])
-  mirror_copy([0, 1, 0]) translate([pcb_width/2-xtab_length+ L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
+  mirror_copy([0, 1, 0]) translate([pcb_width/2-ytab_length+ L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
       cube([ytab_length, simple_tabs_width, pcb_height + tolerance * 2], center=false);
       // translate([0,0,pcb_height+tolerance*2]){
       translate([0, -L_hook, pcb_height + tolerance * 2]) {
         cube([ytab_length, simple_tabs_width + L_hook, 2]);
       }
     }
-      mirror_copy([0, 1, 0]) translate([pcb_width/2-xtab_length+ L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
+      mirror_copy([0, 1, 0]) translate([pcb_width/2-ytab_length+ L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
       cube([ytab_length, simple_tabs_width, pcb_height + tolerance * 2], center=false);
       // translate([0,0,pcb_height+tolerance*2]){
       translate([0, -L_hook, pcb_height + tolerance * 2]) {

@@ -12,6 +12,8 @@ pcb_height = 1.65;
 swap_tabs = false;
 external_Ltabs = false;
 fixed_L_tab = false;
+fixed_L_tab_length = 5;
+L_tabs_offset = 0; // [-10:0.5:10]
 
 ////////////////////////////////////////////////////////////////////////////////
 /* [Secondary parameters] */
@@ -37,12 +39,14 @@ holes_dist_depth = ceil(holes_dist_depth_min / grid_spacing) * grid_spacing;
 L_tab_hook_length = 1.5;
 simple_tabs_width = 1.5;
 
-//xtab_length = swap_tabs ? pcb_depth / 3 : fixed_tab_length; //tabs along x axis
-//ytab_length = swap_tabs ? fixed_tab_length : pcb_width / 3; //tabs along x axis
+//xtab_length = swap_tabs ? pcb_depth / 3 : pcb_width/3; //tabs along x axis
+//ytab_length = swap_tabs ? pcb_width / 3 : pcb_depth / 3; //tabs along y axis
+xtab_length = swap_tabs ? pcb_depth/2 : pcb_width / 3; //tabs along x axis
+ytab_length = swap_tabs ? (fixed_L_tab ? fixed_L_tab_length : pcb_width / 3) : (fixed_L_tab ? fixed_L_tab_length : pcb_depth / 3); //tabs along y axis
 //xtab_length = swap_tabs ? fixed_tab_length : pcb_width / 3; //tabs along x axis
 //ytab_length = swap_tabs ? pcb_depth / 3 : fixed_tab_length;//tabs along x axis
-xtab_length = external_Ltabs ? (swap_tabs ? pcb_depth/3 : pcb_width/3) : (swap_tabs ? pcb_depth / 3 : pcb_width / 3);
-ytab_length = external_Ltabs ? (swap_tabs ? pcb_width : pcb_depth) : (swap_tabs ? pcb_width / 3 : pcb_depth / 3);
+//xtab_length = external_Ltabs ? (swap_tabs ? pcb_depth/3 : pcb_width/3) : (swap_tabs ? pcb_depth / 3 : pcb_width / 3);
+//ytab_length = external_Ltabs ? (swap_tabs ? pcb_width : pcb_depth) : (swap_tabs ? pcb_width / 3 : pcb_depth / 3);
 
 
 // // final_tab_length = external_Ltabs ?  pcb_width : tab_length;
@@ -94,15 +98,34 @@ difference() {
 
 if (swap_tabs) {
   //Swapped tabs
-  // simple tabs
-  mirror_copy([0, 1, 0]) translate([-ytab_length / 2, pcb_depth / 2 + tolerance, board_height]) {
+  // L tabs
+  if (external_Ltabs){
+  mirror([1, 0, 0])
+  mirror_copy([0, 1, 0]) translate([pcb_width/2-xtab_length+ L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
       cube([ytab_length, simple_tabs_width, pcb_height + tolerance * 2], center=false);
       // translate([0,0,pcb_height+tolerance*2]){
       translate([0, -L_hook, pcb_height + tolerance * 2]) {
         cube([ytab_length, simple_tabs_width + L_hook, 2]);
       }
     }
-  // L tabs
+      mirror_copy([0, 1, 0]) translate([pcb_width/2-xtab_length+ L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
+      cube([ytab_length, simple_tabs_width, pcb_height + tolerance * 2], center=false);
+      // translate([0,0,pcb_height+tolerance*2]){
+      translate([0, -L_hook, pcb_height + tolerance * 2]) {
+        cube([ytab_length, simple_tabs_width + L_hook, 2]);
+      }
+    }
+  }
+  else {
+  mirror_copy([0, 1, 0]) translate([-ytab_length / 2 + L_tabs_offset, pcb_depth / 2 + tolerance, board_height]) {
+      cube([ytab_length, simple_tabs_width, pcb_height + tolerance * 2], center=false);
+      // translate([0,0,pcb_height+tolerance*2]){
+      translate([0, -L_hook, pcb_height + tolerance * 2]) {
+        cube([ytab_length, simple_tabs_width + L_hook, 2]);
+      }
+    }
+  }
+  // simple tabs
   mirror_copy([1, 0, 0]) translate([-pcb_width / 2 - tolerance - simple_tabs_width, -xtab_length / 2, board_height]) {
       cube([L_tab_hook_length, xtab_length, pcb_height]);
     }
@@ -113,12 +136,29 @@ if (swap_tabs) {
       cube([xtab_length, simple_tabs_width, pcb_height], center=false);
     }
   // L tabs, along y
-  echo(ytab_length);
-  mirror_copy([1, 0, 0]) translate([-pcb_width / 2 - tolerance - simple_tabs_width, -ytab_length / 2, board_height]) {
+  if (external_Ltabs){
+  mirror([0, 1, 0])
+    mirror_copy([1, 0, 0]) translate([-pcb_width / 2 - tolerance - simple_tabs_width, pcb_depth/2-ytab_length- L_tabs_offset, board_height]) {
       cube([simple_tabs_width, ytab_length, pcb_height + tolerance * 2]);
       translate([0, 0, pcb_height + tolerance * 2]) {
         cube([L_tab_hook_length + L_hook, ytab_length, 2]);
       }
     }
+        mirror_copy([1, 0, 0]) translate([-pcb_width / 2 - tolerance - simple_tabs_width, pcb_depth/2-ytab_length- L_tabs_offset, board_height]) {
+      cube([simple_tabs_width, ytab_length, pcb_height + tolerance * 2]);
+      translate([0, 0, pcb_height + tolerance * 2]) {
+        cube([L_tab_hook_length + L_hook, ytab_length, 2]);
+      }
+    }
+  }
+  else{
+  mirror_copy([1, 0, 0]) translate([-pcb_width / 2 - tolerance - simple_tabs_width, -ytab_length / 2 + L_tabs_offset, board_height]) {
+      cube([simple_tabs_width, ytab_length, pcb_height + tolerance * 2]);
+      translate([0, 0, pcb_height + tolerance * 2]) {
+        cube([L_tab_hook_length + L_hook, ytab_length, 2]);
+      }
+    }
+  }
+  
 }
 // THE END

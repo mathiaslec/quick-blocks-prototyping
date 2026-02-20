@@ -27,12 +27,11 @@ module wasteboard(){
     difference(){
 linear_extrude(height = thickness) {
         offset($fn=50, r = fillet_radius) {
-            translate([0,0,0])
-                square([xside_recalc-grid_spacing-fillet_radius*2,yside_recalc-grid_spacing-fillet_radius*2],center=false);}
+            translate([fillet_radius,fillet_radius,0])
+                square([xside_recalc-fillet_radius*2,yside_recalc-fillet_radius*2],center=false);} // fillet_raduis adds a border all around the square, so we substract it!
            }
-           translate([grid_spacing/2-fillet_radius,grid_spacing/2-fillet_radius,0])
+           translate([fillet_radius,fillet_radius,0])
                 array();}
     }
-
 //wasteboard();
 if (laser_cut==true){projection(cut = true) wasteboard();} else {wasteboard();}

@@ -5,11 +5,16 @@ your_pcb = "foo"; // [arduino_uno, arduino_mega, rp4]
 /* [Main parameters] */
 grid_spacing = 10;
 
-pcb_width = 39.6;
-pcb_depth = 31.5;
+pcb_width_default = 39.6;
+pcb_depth_default = 31.5;
 pcb_height = 1.65;
 
 swap_tabs = false;
+swap_dimensions = false;
+pcb_width = swap_dimensions ? pcb_depth_default : pcb_width_default;
+pcb_depth = swap_dimensions ? pcb_width_default : pcb_depth_default;
+
+
 external_Ltabs = false;
 fixed_L_tab = false;
 fixed_L_tab_length = 5;
@@ -39,31 +44,10 @@ holes_dist_depth = ceil(holes_dist_depth_min / grid_spacing) * grid_spacing;
 L_tab_hook_length = 1.5;
 simple_tabs_width = 1.5;
 
-//xtab_length = swap_tabs ? pcb_depth / 3 : pcb_width/3; //tabs along x axis
-//ytab_length = swap_tabs ? pcb_width / 3 : pcb_depth / 3; //tabs along y axis
+
 xtab_length = swap_tabs ? pcb_depth/2 : pcb_width / 3; //tabs along x axis
 ytab_length = swap_tabs ? (fixed_L_tab ? fixed_L_tab_length : pcb_width / 3) : (fixed_L_tab ? fixed_L_tab_length : pcb_depth / 3); //tabs along y axis
-//xtab_length = swap_tabs ? fixed_tab_length : pcb_width / 3; //tabs along x axis
-//ytab_length = swap_tabs ? pcb_depth / 3 : fixed_tab_length;//tabs along x axis
-//xtab_length = external_Ltabs ? (swap_tabs ? pcb_depth/3 : pcb_width/3) : (swap_tabs ? pcb_depth / 3 : pcb_width / 3);
-//ytab_length = external_Ltabs ? (swap_tabs ? pcb_width : pcb_depth) : (swap_tabs ? pcb_width / 3 : pcb_depth / 3);
 
-
-// // final_tab_length = external_Ltabs ?  pcb_width : tab_length;
-// if (external_Ltabs) {
-//   echo("ext_ tabs");
-//   if (swap_tabs) {
-    
-//   } else {
-//     ytab_length = pcb_depth;
-//     echo(ytab_length);
-//   }
-  
-// }
-
-
-// final_L_tab_length = swap_tabs ? pcb_depth/3 : L_tab_length;
-// L_tab_length = board_depth/3;
 L_hook = 1;
 
 ////////////////////////////////////////////////////////////////////////////////

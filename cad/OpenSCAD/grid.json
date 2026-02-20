@@ -1,0 +1,14 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "fillet_radius": "5",
+            "grid_spacing": "10",
+            "hole_diam": "3",
+            "laser_cut": "true",
+            "thickness": "3",
+            "xside": "390",
+            "yside": "490"
+        }
+    }
+}

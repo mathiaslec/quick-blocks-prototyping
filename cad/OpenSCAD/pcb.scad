@@ -8,17 +8,14 @@ grid_spacing = 10;
 pcb_width_default = 39.6;
 pcb_depth_default = 31.5;
 pcb_height = 1.65;
-
 swap_tabs = false;
 swap_dimensions = false;
 pcb_width = swap_dimensions ? pcb_depth_default : pcb_width_default;
 pcb_depth = swap_dimensions ? pcb_width_default : pcb_depth_default;
-
-
 external_Ltabs = false;
 fixed_L_tab = false;
 fixed_L_tab_length = 5;
-L_tabs_offset = 0; // [-10:0.5:10]
+L_tabs_offset = 0; // [-20:0.5:20]
 
 ////////////////////////////////////////////////////////////////////////////////
 /* [Secondary parameters] */

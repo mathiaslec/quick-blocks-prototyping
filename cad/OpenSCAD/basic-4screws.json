@@ -1,0 +1,23 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "profondeur_lamage": "3.5",
+            "x1": "98",
+            "x_init": "109",
+            "y1": "33",
+            "y_init": "52"
+        },
+        "New set 2": {
+            "bord_min": "2",
+            "diametre_lamage": "6",
+            "diametre_trou": "3",
+            "profondeur_lamage": "4",
+            "r": "5",
+            "x1": "60",
+            "x_init": "150",
+            "y1": "160",
+            "y_init": "213"
+        }
+    }
+}
